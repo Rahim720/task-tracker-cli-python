@@ -14,3 +14,15 @@ class Task(self, description):
         return f"Task(id={self.id}, description='{self.description}', status='{self.status}', createdAt='{self.createdAt}', updatedAt='{self.updatedAt}')"
 
 
+def create_task(description):
+    description = input("Enter task description: ")
+    task = newTask(description)
+
+
+def delete_task(task_id):
+    task_id = input("Enter task ID to delete: ")
+    # Logic to delete the task with the given ID
+
+def list_tasks():
+    # Logic to list all tasks
+    pass
