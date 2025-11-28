@@ -1,8 +1,9 @@
 import sys
 import datetime
+import json
 
 
-class Task(self, description):
+class Task:
     def __init__(self, id, description, status, createdAt, updatedAt):
         self.id = id
         self.description = description
@@ -15,8 +16,11 @@ class Task(self, description):
 
 
 def create_task(description):
-    description = input("Enter task description: ")
-    task = newTask(description)
+    description = str(description)
+    task = Task(1, description, "pending", datetime.datetime.now(), datetime.datetime.now())
+    file = open("tasks.txt", "a")
+    file.write(task.__repr__())
+    
 
 
 def delete_task(task_id):
@@ -26,3 +30,30 @@ def delete_task(task_id):
 def list_tasks():
     # Logic to list all tasks
     pass
+
+def update_task(task_id, new_description):
+    pass
+
+def command_parser():
+    n = len(sys.argv)
+    file = open("tasks.txt", "a")
+    if (sys.argv[1] == "add"):
+        
+        if len(sys.argv) < 3:
+           print("Please provide a task description")
+           return 1
+        else:
+           newDescription = ""
+           for i in range(2, (len(sys.argv))):
+               newDescription = newDescription + " " + (sys.argv[i])
+           create_task(newDescription)
+           return 0
+        file = open("tasks.txt", "a")
+        
+        
+        
+        
+
+n = len(sys.argv)
+print(f"Number of arguments: {n}")
+command_parser()
